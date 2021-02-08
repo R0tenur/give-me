@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="autofac" Version="6.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GiveMe.Abstractions\GiveMe.Abstractions.csproj" />
+    <ProjectReference Include="..\GiveMe.Commands\GiveMe.Commands.csproj" />
+    <ProjectReference Include="..\GiveMe.Handlers\GiveMe.Handlers.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="TextCopy" Version="4.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GiveMe.Abstractions\GiveMe.Abstractions.csproj" />
+    <ProjectReference Include="..\GiveMe.Commands\GiveMe.Commands.csproj" />
+  </ItemGroup>
+</Project>
