@@ -9,7 +9,7 @@ namespace GiveMe.Handlers
 {
     public class NoSuchCommandHandler : IHandle<NoSuchCommand>
     {
-        public Task<ICommandResult> Execute(NoSuchCommand command)
+        public Task<ICommandResult> Handle(NoSuchCommand command)
         {
             ICommandResult result = new FailureResult("No such command");
             return Task.FromResult(result);

@@ -29,12 +29,12 @@ namespace GiveMe
 
             return command switch
             {
-                "guid" => commandRunner.Execute(new GuidCommand()),
-                "base64" => commandRunner.Execute(new Base64Command
+                "guid" => commandRunner.Handle(new GuidCommand()),
+                "base64" => commandRunner.Handle(new Base64Command
                 {
                     InputData = args.Skip(1).FirstOrDefault()
                 }),
-                _ => commandRunner.Execute(new NoSuchCommand())
+                _ => commandRunner.Handle(new NoSuchCommand())
             };
         }
     }

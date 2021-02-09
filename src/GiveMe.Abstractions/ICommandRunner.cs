@@ -6,7 +6,7 @@ namespace GiveMe.Abstractions
 {
     public interface ICommandRunner
     {
-        Task<ICommandResult> Execute<TCommand>(TCommand command) where TCommand : ICommand;
+        Task<ICommandResult> Handle<TCommand>(TCommand command) where TCommand : ICommand;
         IEnumerable<IValidateResult> Validate<TCommand>(TCommand command) where TCommand : ICommand;
     }
 }

@@ -11,7 +11,7 @@ namespace GiveMe.Handlers
 {
     public class Base64Handler : IHandle<Base64Command>
     {
-        public async Task<ICommandResult> Execute(Base64Command command)
+        public async Task<ICommandResult> Handle(Base64Command command)
         {
             string data = command.InputData;
             if (string.IsNullOrWhiteSpace(data))

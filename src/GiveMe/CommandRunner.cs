@@ -27,7 +27,7 @@ namespace GiveMe
         {
             return new CommandRunner();
         }
-        public Task<ICommandResult> Execute<TCommand>(TCommand command) where TCommand : ICommand
+        public Task<ICommandResult> Handle<TCommand>(TCommand command) where TCommand : ICommand
         {
 
             var handler = _diContainer.Resolve<IHandle<TCommand>>();
@@ -37,7 +37,7 @@ namespace GiveMe
                 throw new CommandHandlerNotFoundException(typeof(TCommand));
             }
 
-            return handler.Execute(command);
+            return handler.Handle(command);
         }
 
         public IEnumerable<IValidateResult> Validate<TCommand>(TCommand command) where TCommand : ICommand

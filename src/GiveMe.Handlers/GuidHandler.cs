@@ -10,7 +10,7 @@ namespace GiveMe.Handlers
 {
     public class GuidHandler : IHandle<GuidCommand>
     {
-        public async Task<ICommandResult> Execute(GuidCommand command)
+        public async Task<ICommandResult> Handle(GuidCommand command)
         {
             await ClipboardService.SetTextAsync(Guid.NewGuid().ToString());
             ICommandResult result = new SuccessResult("Guid added to clipboard");
