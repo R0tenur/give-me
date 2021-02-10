@@ -54,10 +54,10 @@ jobs:
         path: ./
     - name: Zip artifacts
       run: |
-        zip -r mac.zip mac
-        zip -r windows.zip windows
-        zip -r ubuntu.zip ubuntu
-        zip -r arm64.zip arm64
+        tar -czf giveme-mac.tar.gz mac
+        zip -r giveme-windows.zip windows
+        tar -czf giveme-ubuntu.tar.gz ubuntu
+        tar -czf giveme-arm64.tar.gz  arm64
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1.0.0
