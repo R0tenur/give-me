@@ -75,8 +75,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: mac.zip
-        asset_name: mac.zip
+        asset_path: giveme-mac.tar.gz
+        asset_name: giveme-mac.tar.gz
         asset_content_type: application/zip
     - name: Upload Windows Asset
       id: upload-windows-asset 
@@ -85,8 +85,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: windows.zip
-        asset_name: windows.zip
+        asset_path: giveme-windows.zip
+        asset_name: giveme-windows.zip
         asset_content_type: application/zip
     - name: Upload Ubuntu Asset
       id: upload-ubuntu-asset 
@@ -95,8 +95,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ubuntu.zip
-        asset_name: ubuntu.zip
+        asset_path: giveme-ubuntu.tar.gz
+        asset_name: giveme-ubuntu.tar.gz
         asset_content_type: application/zip
     - name: Upload Arm64 Asset
       id: upload-arm64-asset 
@@ -105,6 +105,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: arm64.zip
-        asset_name: arm64.zip
+        asset_path: giveme-arm64.tar.gz
+        asset_name: giveme-arm64.tar.gz
         asset_content_type: application/zip
