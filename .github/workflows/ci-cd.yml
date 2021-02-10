@@ -56,7 +56,7 @@ jobs:
         draft: false
         prerelease: false
     - name: Upload Mac Asset
-      id: upload-release-asset 
+      id: upload-mac-asset 
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -66,7 +66,7 @@ jobs:
         asset_name: mac.zip
         asset_content_type: application/zip
     - name: Upload Windows Asset
-      id: upload-release-asset 
+      id: upload-windows-asset 
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -76,7 +76,7 @@ jobs:
         asset_name: windows.zip
         asset_content_type: application/zip
     - name: Upload Ubuntu Asset
-      id: upload-release-asset 
+      id: upload-ubuntu-asset 
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -86,7 +86,7 @@ jobs:
         asset_name: ubuntu.zip
         asset_content_type: application/zip
     - name: Upload Arm64 Asset
-      id: upload-release-asset 
+      id: upload-arm64-asset 
       uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
