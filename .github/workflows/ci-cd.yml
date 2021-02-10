@@ -28,19 +28,19 @@ jobs:
     - name: Publish Mac
       run: dotnet publish ./src/GiveMe/GiveMe.csproj --configuration release --runtime osx-x64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=true --output ./mac
     - name: Zip Mac
-      run: zip -r ./mac.zip mac
+      run: zip -r /github/home/mac.zip mac
     - name: Publish Windows
       run: dotnet publish ./src/GiveMe/GiveMe.csproj --configuration release  --runtime win10-x64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=true --output ./windows
     - name: Zip Windows
-      run: zip -r ./windows.zip windows
+      run: zip -r /github/home/windows.zip windows
     - name: Publish Ubuntu
       run: dotnet publish ./src/GiveMe/GiveMe.csproj --configuration release --runtime ubuntu-x64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=true --output ./ubuntu
     - name: Zip Ubuntu
-      run: zip -r ./ubuntu.zip ubuntu
+      run: zip -r /github/home/ubuntu.zip ubuntu
     - name: Publish ARM64
-      run: dotnet publish ./src/GiveMe/GiveMe.csproj --configuration release  --runtime linux-arm64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=true --output ./arm-64
+      run: dotnet publish ./src/GiveMe/GiveMe.csproj --configuration release  --runtime linux-arm64 --self-contained true -p:PublishSingleFile=true -p:PublishTrimmed=true --output ./arm64
     - name: Zip Ubuntu
-      run: zip -r ./ubuntu.zip ubuntu
+      run: zip -r /github/home/arm64.zip arm64
 
   release:
     needs: build
@@ -64,7 +64,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./mac.zip
+        asset_path: /github/home/mac.zip
         asset_name: mac.zip
         asset_content_type: application/zip
     - name: Upload Windows Asset
@@ -74,7 +74,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./windows.zip
+        asset_path: /github/home/windows.zip
         asset_name: windows.zip
         asset_content_type: application/zip
     - name: Upload Ubuntu Asset
@@ -84,7 +84,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./ubuntu.zip
+        asset_path: /github/home/ubuntu.zip
         asset_name: ubuntu.zip
         asset_content_type: application/zip
     - name: Upload Arm64 Asset
@@ -94,6 +94,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./arm64.zip
+        asset_path: /github/home/arm64.zip
         asset_name: arm64.zip
         asset_content_type: application/zip
