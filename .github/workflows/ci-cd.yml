@@ -54,10 +54,12 @@ jobs:
         path: ./
     - name: Zip artifacts
       run: |
-        tar -czf giveme-mac.tar.gz mac
-        zip -r giveme-windows.zip windows
-        tar -czf giveme-ubuntu.tar.gz ubuntu
-        tar -czf giveme-arm64.tar.gz  arm64
+        tar -czf giveme-mac.tar.gz mac/*
+        zip -r giveme-windows.zip windows/*
+        tar -czf giveme-ubuntu.tar.gz ubuntu/*
+        tar -czf giveme-arm64.tar.gz  arm64/*
+    - name: Get mac hash
+      run: shasum -a 256 giveme-mac.tar.gz
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1.0.0
@@ -108,3 +110,6 @@ jobs:
         asset_path: giveme-arm64.tar.gz
         asset_name: giveme-arm64.tar.gz
         asset_content_type: application/zip
+
+  publish to homebrew:
+
